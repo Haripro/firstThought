@@ -1,0 +1,2 @@
+# firstThought
+A sample program
