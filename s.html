@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Facebook Login JavaScript Example</title>
+<meta charset="UTF-8">
+</head>
+<body>
+<div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '581107688633578',
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+    //FB.AppEvents.logPageView();
+  };
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName('head')[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s);
+  js.id = id;
+  js.async = true;
+  js.src = "http://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=581107688633578";
+  //d.getElementsByTagName('head')[0].appendChild(js);
+  d.getElementsByTagName('head')[0].appendChild(js);
+}(document, 'script', 'facebook-jssdk'));
+  function login() {
+        FB.login(function(response) {
+            if (response.authResponse) {
+                alert('Login Success!');
+            }else{
+                alert('Login Failed!');
+            }
+        }, {scope: 'email'});
+     }
+</script>
+<div onclick="login();">Login with Facebook</div>
+</body>
+</html>
